@@ -1,0 +1,27 @@
+version: '3'  # versi dari Docker Compose file. Versi ini paling banyak digunakan dan mendukung sebagian besar fitur Docker Compose.
+ 
+services:   # Bagian dimana kita mendefinisikan layanan-layanan yang akan dijalankan dalam lingkungan Docker
+  item-app:   # Ini adalah nama layanan pertama
+    image: ghcr.io/darkerside/item-app:v1  # Menggunakan image / berkas docker yang ada di ghcr.io/darkerside/item-app:v1 
+    container_name: item-app  # Menentukan nama dari layanan pertama, disini kita set namanya menjadi item-app
+    ports:  # Bagian dimana kita mendefinisikan port pada layanan pertama
+      - "80:8080" # Disini kita melakukan pengarahan port, dengan menyatakan bahwa port 80 pada host akan diarahkan ke port 8080 di dalam container 
+    depends_on: # Menentukan dependensi layanan. item-app bergantung pada item-db yang artinya item-db akan dijalankan terlebih dahulu sebelum item-app dimulai.
+      item-db:
+        condition: service_healty # Ini menunggu hingga `item-db` melaporkan status sehat sebelum memulai `item-app`.
+    restart: always   # Memberitahu Docker bahwa jika Container terhenti maka akan otomatis dilakukan Restart / Dijalankan Ulang
+    
+  item-db:    # Ini adalah nama layanan kedua
+    image: mongo:3  # menggunakan image / berkas docker MongoDB dengan tag versi 3 dari Docker Hub
+    container_name: item-db  # Menentukan nama dari layanan kedua, disini kita set namanya menjadi item-db
+    volumes:  # Menghubungkan volume Docker dengan nama app-db ke direktori /data/db didalam container. Opsi rw menandakan bahwa volume bisa dibaca dan ditulis (read-write) oleh container.
+      - app-db:/data/db:rw
+    healthcheck:  # Mendefinisikan uji kesehatan untuk layanan.
+      test: ["CMD", "mongo", "--eval", "db.stats().ok"] # Docker akan memeriksa kesehatan layanan ini dengan menjalankan perintah yang didefinisikan, jika status kembalian positif maka docker akan menganggap layanan kedua degnan status healty
+      interval: 30s   # Menentukan interval waktu antara dua pemeriksaan yang sama
+      timeout: 10s  # Menentukan waktu maksimum tunggu sampai pemeriksaan dianggap gagal
+      retries: 5  # Menentukan jumlah kali uji kesehatan akan diulang sebelum Docker menganggap layanan ini gagal.
+    restart: always   # Memberitahu Docker bahwa jika Container terhenti maka akan otomatis dilakukan Restart / Dijalankan Ulang
+
+volumes: # Bagian dimana kita mendefinisikan volume untuk digunakan oleh container
+  app-db: # Buat nama volumes yang dapat dipakai oleh container diatas

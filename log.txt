@@ -1,0 +1,1 @@
+validating /var/www/dicoding/a433-microservices/docker-compose.yml: services.item-app.depends_on.item-db.condition services.item-app.depends_on.item-db.condition must be one of the following: "service_started", "service_healthy", "service_completed_successfully"
