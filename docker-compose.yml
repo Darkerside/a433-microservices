@@ -8,7 +8,7 @@ services:   # Bagian dimana kita mendefinisikan layanan-layanan yang akan dijala
       - "80:8080" # Disini kita melakukan pengarahan port, dengan menyatakan bahwa port 80 pada host akan diarahkan ke port 8080 di dalam container 
     depends_on: # Menentukan dependensi layanan. item-app bergantung pada item-db yang artinya item-db akan dijalankan terlebih dahulu sebelum item-app dimulai.
       item-db:
-        condition: service_healty # Ini menunggu hingga `item-db` melaporkan status sehat sebelum memulai `item-app`.
+        condition: service_healthy # Ini menunggu hingga `item-db` melaporkan status sehat sebelum memulai `item-app`.
     restart: always   # Memberitahu Docker bahwa jika Container terhenti maka akan otomatis dilakukan Restart / Dijalankan Ulang
     
   item-db:    # Ini adalah nama layanan kedua
