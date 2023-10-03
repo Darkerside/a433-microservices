@@ -1,0 +1,4 @@
+Link Packages
+ghcr.io/darkerside/item-app:v1
+or
+https://github.com/darkerside/a433-microservices/pkgs/container/item-app
