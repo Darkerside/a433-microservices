@@ -1,1 +1,62 @@
-validating /var/www/dicoding/a433-microservices/docker-compose.yml: services.item-app.depends_on.item-db.condition services.item-app.depends_on.item-db.condition must be one of the following: "service_started", "service_healthy", "service_completed_successfully"
+item-app  | 
+item-app  | > docker-software-delivery@1.0.0 start /app
+item-app  | > node ./bin/www
+item-app  | 
+item-app  | NODE_ENV: production
+item-app  | Connected to database
+item-app  | [0mGET / [32m200 [0m104.732 ms - 785[0m
+item-app  | [0mGET /javascripts/dist/dist.min.js [32m200 [0m11.881 ms - 186999[0m
+item-app  | [0mGET /stylesheets/style.css [32m200 [0m15.465 ms - 519[0m
+item-app  | [0mGET /api [32m200 [0m3.501 ms - 2[0m
+item-app  | [0mGET /favicon.ico [33m404 [0m6.918 ms - 270[0m
+item-app  | [0mGET /server-status?auto [33m404 [0m1.041 ms - 270[0m
+item-app  | [0mPOST /api [32m201 [0m27.920 ms - 51[0m
+item-app  | [0mGET / [32m200 [0m0.750 ms - 785[0m
+item-app  | [0mGET /server-status?auto [33m404 [0m0.470 ms - 270[0m
+item-app  | [0mGET /server-status?auto [33m404 [0m0.777 ms - 270[0m
+item-db   | 2023-10-03T07:38:24.851+0000 I CONTROL  [initandlisten] MongoDB starting : pid=1 port=27017 dbpath=/data/db 64-bit host=af7e36c4cb82
+item-db   | 2023-10-03T07:38:24.851+0000 I CONTROL  [initandlisten] db version v3.6.23
+item-db   | 2023-10-03T07:38:24.851+0000 I CONTROL  [initandlisten] git version: d352e6a4764659e0d0350ce77279de3c1f243e5c
+item-db   | 2023-10-03T07:38:24.851+0000 I CONTROL  [initandlisten] OpenSSL version: OpenSSL 1.0.2g  1 Mar 2016
+item-db   | 2023-10-03T07:38:24.851+0000 I CONTROL  [initandlisten] allocator: tcmalloc
+item-db   | 2023-10-03T07:38:24.851+0000 I CONTROL  [initandlisten] modules: none
+item-db   | 2023-10-03T07:38:24.851+0000 I CONTROL  [initandlisten] build environment:
+item-db   | 2023-10-03T07:38:24.851+0000 I CONTROL  [initandlisten]     distmod: ubuntu1604
+item-db   | 2023-10-03T07:38:24.851+0000 I CONTROL  [initandlisten]     distarch: x86_64
+item-db   | 2023-10-03T07:38:24.851+0000 I CONTROL  [initandlisten]     target_arch: x86_64
+item-db   | 2023-10-03T07:38:24.851+0000 I CONTROL  [initandlisten] options: { net: { bindIpAll: true } }
+item-db   | 2023-10-03T07:38:24.851+0000 W -        [initandlisten] Detected unclean shutdown - /data/db/mongod.lock is not empty.
+item-db   | 2023-10-03T07:38:24.851+0000 I -        [initandlisten] Detected data files in /data/db created by the 'wiredTiger' storage engine, so setting the active storage engine to 'wiredTiger'.
+item-db   | 2023-10-03T07:38:24.851+0000 W STORAGE  [initandlisten] Recovering data from the last clean checkpoint.
+item-db   | 2023-10-03T07:38:24.851+0000 I STORAGE  [initandlisten] 
+item-db   | 2023-10-03T07:38:24.851+0000 I STORAGE  [initandlisten] ** WARNING: Using the XFS filesystem is strongly recommended with the WiredTiger storage engine
+item-db   | 2023-10-03T07:38:24.851+0000 I STORAGE  [initandlisten] **          See http://dochub.mongodb.org/core/prodnotes-filesystem
+item-db   | 2023-10-03T07:38:24.851+0000 I STORAGE  [initandlisten] wiredtiger_open config: create,cache_size=7138M,cache_overflow=(file_max=0M),session_max=20000,eviction=(threads_min=4,threads_max=4),config_base=false,statistics=(fast),compatibility=(release="3.0",require_max="3.0"),log=(enabled=true,archive=true,path=journal,compressor=snappy),file_manager=(close_idle_time=100000),statistics_log=(wait=0),verbose=(recovery_progress),
+item-db   | 2023-10-03T07:38:25.085+0000 I STORAGE  [initandlisten] WiredTiger message [1696318705:85469][1:0x7f382b3d4a40], txn-recover: Main recovery loop: starting at 1/20608
+item-db   | 2023-10-03T07:38:25.085+0000 I STORAGE  [initandlisten] WiredTiger message [1696318705:85804][1:0x7f382b3d4a40], txn-recover: Recovering log 1 through 2
+item-db   | 2023-10-03T07:38:25.136+0000 I STORAGE  [initandlisten] WiredTiger message [1696318705:136113][1:0x7f382b3d4a40], txn-recover: Recovering log 2 through 2
+item-db   | 2023-10-03T07:38:25.179+0000 I STORAGE  [initandlisten] WiredTiger message [1696318705:179227][1:0x7f382b3d4a40], txn-recover: Set global recovery timestamp: 0
+item-db   | 2023-10-03T07:38:25.200+0000 I CONTROL  [initandlisten] 
+item-db   | 2023-10-03T07:38:25.200+0000 I CONTROL  [initandlisten] ** WARNING: Access control is not enabled for the database.
+item-db   | 2023-10-03T07:38:25.200+0000 I CONTROL  [initandlisten] **          Read and write access to data and configuration is unrestricted.
+item-db   | 2023-10-03T07:38:25.200+0000 I CONTROL  [initandlisten] 
+item-db   | 2023-10-03T07:38:25.204+0000 I FTDC     [initandlisten] Initializing full-time diagnostic data capture with directory '/data/db/diagnostic.data'
+item-db   | 2023-10-03T07:38:25.204+0000 I NETWORK  [initandlisten] listening via socket bound to 0.0.0.0
+item-db   | 2023-10-03T07:38:25.204+0000 I NETWORK  [initandlisten] listening via socket bound to /tmp/mongodb-27017.sock
+item-db   | 2023-10-03T07:38:25.204+0000 I NETWORK  [initandlisten] waiting for connections on port 27017
+item-db   | 2023-10-03T07:38:26.018+0000 I FTDC     [ftdc] Unclean full-time diagnostic data capture shutdown detected, found interim file, some metrics may have been lost. OK
+item-db   | 2023-10-03T07:38:54.951+0000 I NETWORK  [listener] connection accepted from 127.0.0.1:46902 #1 (1 connection now open)
+item-db   | 2023-10-03T07:38:54.952+0000 I NETWORK  [conn1] received client metadata from 127.0.0.1:46902 conn1: { application: { name: "MongoDB Shell" }, driver: { name: "MongoDB Internal Client", version: "3.6.23" }, os: { type: "Linux", name: "Ubuntu", architecture: "x86_64", version: "16.04" } }
+item-db   | 2023-10-03T07:38:54.955+0000 I NETWORK  [conn1] end connection 127.0.0.1:46902 (0 connections now open)
+item-db   | 2023-10-03T07:38:55.938+0000 I NETWORK  [listener] connection accepted from 172.19.0.3:52208 #2 (1 connection now open)
+item-db   | 2023-10-03T07:38:55.943+0000 I NETWORK  [conn2] received client metadata from 172.19.0.3:52208 conn2: { driver: { name: "nodejs", version: "2.2.36" }, os: { type: "Linux", name: "linux", architecture: "x64", version: "6.2.0-33-generic" }, platform: "Node.js v14.21.3, LE, mongodb-core: 2.1.20" }
+item-db   | 2023-10-03T07:39:25.076+0000 I NETWORK  [listener] connection accepted from 127.0.0.1:34854 #3 (2 connections now open)
+item-db   | 2023-10-03T07:39:25.077+0000 I NETWORK  [conn3] received client metadata from 127.0.0.1:34854 conn3: { application: { name: "MongoDB Shell" }, driver: { name: "MongoDB Internal Client", version: "3.6.23" }, os: { type: "Linux", name: "Ubuntu", architecture: "x86_64", version: "16.04" } }
+item-db   | 2023-10-03T07:39:25.079+0000 I NETWORK  [conn3] end connection 127.0.0.1:34854 (1 connection now open)
+item-db   | 2023-10-03T07:39:55.214+0000 I NETWORK  [listener] connection accepted from 127.0.0.1:51260 #4 (2 connections now open)
+item-db   | 2023-10-03T07:39:55.215+0000 I NETWORK  [conn4] received client metadata from 127.0.0.1:51260 conn4: { application: { name: "MongoDB Shell" }, driver: { name: "MongoDB Internal Client", version: "3.6.23" }, os: { type: "Linux", name: "Ubuntu", architecture: "x86_64", version: "16.04" } }
+item-db   | 2023-10-03T07:39:55.217+0000 I NETWORK  [conn4] end connection 127.0.0.1:51260 (1 connection now open)
+item-db   | 2023-10-03T07:40:03.252+0000 I STORAGE  [conn2] createCollection: accumulator.documents with generated UUID: dad97ad6-529d-46fc-b2ed-d01a83d289a1
+item-db   | 2023-10-03T07:40:25.347+0000 I NETWORK  [listener] connection accepted from 127.0.0.1:54466 #5 (2 connections now open)
+item-db   | 2023-10-03T07:40:25.348+0000 I NETWORK  [conn5] received client metadata from 127.0.0.1:54466 conn5: { application: { name: "MongoDB Shell" }, driver: { name: "MongoDB Internal Client", version: "3.6.23" }, os: { type: "Linux", name: "Ubuntu", architecture: "x86_64", version: "16.04" } }
+item-db   | 2023-10-03T07:40:25.351+0000 I NETWORK  [conn5] end connection 127.0.0.1:54466 (1 connection now open)
